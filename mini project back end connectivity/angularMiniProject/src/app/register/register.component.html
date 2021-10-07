@@ -1,0 +1,154 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName">Employee Name</label>
+                      <input type="text" class="form-control form-control-lg" formControlName="ename"/>
+                      <div *ngIf="regForm.controls['ename'].touched && regForm.controls['ename'].invalid">
+                        <span *ngIf="regForm.controls['ename'].hasError('required')" style="color: red;">First name cannot be empty</span>
+                        <span *ngIf="regForm.controls['ename'].hasError('minlength')" style="color:red">First name should have minimum 6 characters</span>
+                        <span *ngIf="regForm.controls['ename'].hasError('maxlength')" style="color: red;">First name should be in between 10 characters</span>
+                    </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="lastName">User Name</label>
+                      <input type="text" id="lastName" class="form-control form-control-lg" formControlName="username"/>
+                    
+                      <div *ngIf="regForm.controls['username'].touched && regForm.controls['username'].invalid">
+                        <span *ngIf="regForm.controls['username'].hasError('pattern')" style="color: red;">Please enter valid User name (For eg. aBc_123)</span>
+                         <span *ngIf="regForm.controls['username'].hasError('required')" style="color: red;">Please enter username</span>
+                        
+                    </div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+  
+                        <div class="form-outline">
+                          <label class="form-label" for="lastName">Password</label>
+                          <input type="text" id="lastName" class="form-control form-control-lg" formControlName="password"/>
+                          <div *ngIf="regForm.controls['password'].touched && regForm.controls['password'].invalid">
+                            <span *ngIf="regForm.controls['password'].hasError('pattern')" style="color: red;">Password must contain  at least one uppercase letter, one lowercase letter, one number and one special character (For eg.Abcdef@123)</span>
+                        <span *ngIf="regForm.controls['password'].hasError('required')" style="color: red;">Please enter password</span>
+                        </div>
+                         
+                        </div>
+      
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <label class="form-label" >Designation</label>
+                        <div class="form-outline">
+                          <input type="text" class="form-control form-control-lg" formControlName="designation"/>
+                         
+                        </div>
+      
+                      </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        
+                        value="Female"
+                        checked
+
+                        formControlName="gender"
+                        
+                      />
+                      <div *ngIf="regForm.controls['gender'].touched && regForm.controls['gender'].invalid">
+                        
+                        </div>
+                      <label class="form-check-label" >Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+   
+                        value="Male"
+                        formControlName="gender"
+                      />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                     
+                        formControlName="gender"
+                        value="other"
+                      />
+                      <label class="form-check-label" for="otherGender" >Other</label>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="emailAddress">Email</label>
+                      <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="email"/>
+                      <div *ngIf="regForm.controls['email'].touched && regForm.controls['email'].invalid">
+                        <span *ngIf="regForm.controls['email'].hasError('pattern')" style="color: red;">Please enter valid mail id (For eg. Abc11@gmail.com)</span>
+                       <span *ngIf="regForm.controls['email'].hasError('required')" style="color: red;">Please enter mail id</span>
+    
+                    </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" formControlName="mobileno"/>
+                      <div *ngIf="regForm.controls['mobileno'].touched && regForm.controls['mobileno'].invalid">
+                        <span  *ngIf="regForm.controls['mobileno'].hasError('pattern')" style="color: red;">Please enter valid phone number (For eg.+91__********05)</span>
+                        <span  *ngIf="regForm.controls['mobileno'].hasError('required')" style="color: red;">Phone number cannot be empty</span>
+                        </div>
+                    
+                    </div>
+  
+                  </div>
+                </div>
+  
+              
+  
+                <div class="mt-4 pt-2">
+                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" [disabled]=!regForm.valid/>
+                </div>
+                
+                <div><br>
+              <a routerLink="/login">Back to Login Page</a>
+  
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

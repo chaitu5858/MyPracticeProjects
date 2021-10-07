@@ -1,0 +1,36 @@
+<div class="container">
+    <table class="table table-striped" >
+      <tbody >
+          <tr><td><strong>Id</strong> </td>
+              <td><strong>Employee Name</strong></td>
+              <td><strong>Email-Id</strong></td>
+              <td><strong>Other Details </strong></td>
+              <td><strong>Edit</strong></td>
+              <td><strong>Delete</strong></td>
+              </tr>
+        <tr *ngFor="let emp of empList">
+          <td>{{emp.id}}</td>
+          <td>{{emp.ename}}</td>
+          <td>{{emp.email}}</td>
+          <td><a [routerLink]="['employeedetail',emp.id]">show details</a></td>
+          <td><a class="btn">
+             <i class="fa fa-edit" [routerLink]="['update']" [state]="emp"></i>
+ 
+                      
+          </a>
+          </td>
+          <td><a class="btn">
+            <i class="fa fa-trash" (click)="deleteData(emp.id)" ></i>
+          </a>                       
+          </td>                                  
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-body">
+    <button class="btn btn-primary btn-sm"  (click)="goBack()">Go Back</button>
+  </div>
+
+ 
+  <router-outlet></router-outlet>
+ 

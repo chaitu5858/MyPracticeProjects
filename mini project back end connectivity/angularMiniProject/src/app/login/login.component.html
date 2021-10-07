@@ -1,0 +1,34 @@
+
+<div class="wrapper fadeInDown" >
+    <div id="formContent">
+     
+      <form [formGroup]="logForm" (ngSubmit)="toLogin()" >
+        <input type="text" id="login" class="fadeIn second"  placeholder="username" formControlName="username">
+       
+      
+        <div *ngIf="logForm.controls['username'].touched && logForm.controls['username'].invalid">
+        
+      
+           <span *ngIf="logForm.controls['username'].hasError('required')" style="color: red;">Please enter username</span>
+          
+      </div>
+     
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+
+        <div *ngIf="logForm.controls['password'].touched && logForm.controls['password'].invalid">
+      
+          <span *ngIf="logForm.controls['password'].hasError('required')" style="color: red;">Please enter username</span>
+         
+     </div>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+        <div style="color: red;">{{msg}}</div>
+     
+      </form>
+
+  
+      <div id="formFooter">
+        <a class="underlineHover" routerLink="register">Register New User</a>
+      </div>
+  
+    </div>
+  </div>

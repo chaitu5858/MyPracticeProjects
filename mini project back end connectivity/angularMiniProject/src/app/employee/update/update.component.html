@@ -1,0 +1,157 @@
+<section class="vh-100 gradient-custom">
+    <div class="container">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Update Your Details </h3>
+              <form [formGroup]="updateForm" (ngSubmit)="updateData()">
+  
+                <div style="width: 50%;height: 50%;">
+                <div class="row" >
+                  <div class="col-md-6 mb-4">
+  
+                    <input type="hidden" class="form-control form-control-lg" formControlName="id"/>
+                    
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName">Employee Name</label>
+                      <input type="text" class="form-control form-control-lg" formControlName="ename"/>
+                      <div *ngIf="updateForm.controls['ename'].touched && updateForm.controls['ename'].invalid">
+                        <span *ngIf="updateForm.controls['ename'].hasError('required')" style="color: red;">First name cannot be empty</span>
+                       
+                    </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <label class="form-label" >User Name</label>
+                      <input type="text" id="lastName" class="form-control form-control-lg" formControlName="username"/>
+                    
+                      <div *ngIf="updateForm.controls['username'].touched && updateForm.controls['username'].invalid">
+                      
+                         <span *ngIf="updateForm.controls['username'].hasError('required')" style="color: red;">Please enter username</span>
+                        
+                    </div>
+                    </div>
+  
+                  </div>
+                </div>
+            </div>
+  
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+  
+                        <div class="form-outline">
+                          <label class="form-label" for="lastName">Password</label>
+                          <input type="text" id="lastName" class="form-control form-control-lg" formControlName="password"/>
+                          <div *ngIf="updateForm.controls['password'].touched && updateForm.controls['password'].invalid">
+      
+                        <span *ngIf="updateForm.controls['password'].hasError('required')" style="color: red;">Please enter password</span>
+                        </div>
+                         
+                        </div>
+      
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <label class="form-label" >Designation</label>
+                        <div class="form-outline">
+                          <input type="text" class="form-control form-control-lg" formControlName="designation"/>
+                         
+                        </div>
+      
+                      </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        
+                        value="Female"
+                        checked
+
+                        formControlName="gender"
+                        
+                      />
+                      <div *ngIf="updateForm.controls['gender'].touched && updateForm.controls['gender'].invalid">
+                        
+                        </div>
+                      <label class="form-check-label" >Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+   
+                        value="Male"
+                        formControlName="gender"
+                      />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                     
+                        formControlName="gender"
+                        value="other"
+                      />
+                      <label class="form-check-label" for="otherGender" >Other</label>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="emailAddress">Email</label>
+                      <input type="email" id="emailAddress" class="form-control form-control-lg" formControlName="email"/>
+                      <div *ngIf="updateForm.controls['email'].touched && updateForm.controls['email'].invalid">
+                   
+                       <span *ngIf="updateForm.controls['email'].hasError('required')" style="color: red;">Please enter mail id</span>
+    
+                    </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" formControlName="mobileno"/>
+                      <div *ngIf="updateForm.controls['mobileno'].touched && updateForm.controls['mobileno'].invalid">
+                       
+                        <span  *ngIf="updateForm.controls['mobileno'].hasError('required')" style="color: red;">Phone number cannot be empty</span>
+                        </div>
+                    
+                    </div>
+  
+                  </div>
+                </div>
+  
+              
+  
+                <div class="mt-4 pt-2">
+                  <button class="btn btn-primary btn-lg" type="submit" >Update</button>
+                </div>
+                
+                <div>
+              
+  
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
